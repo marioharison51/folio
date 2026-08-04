@@ -1,0 +1,10 @@
+[
+  {
+    "id": "exemple-projet",
+    "title": "Nom du projet",
+    "short": "Une phrase courte qui résume le projet.",
+    "description": "Description plus détaillée : le problème résolu, les choix techniques, ce que vous en avez appris.",
+    "github": "https://github.com/votre-utilisateur/exemple-projet",
+    "demo": ""
+  }
+]

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Portfolio de projets — scannez un QR code pour ouvrir la page dédiée à chaque projet." />
+  <meta name="color-scheme" content="light dark" />
+  <title>Mes projets — Mon portfolio</title>
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <h1>Mes projets</h1>
+    <p>Bienvenue — scannez le QR d'un projet pour ouvrir la page dédiée.</p>
+    {% if github_profile_url %}
+    <a class="btn ghost" href="{{ github_profile_url }}" target="_blank" rel="noopener noreferrer">Voir mon profil GitHub</a>
+    {% endif %}
+  </header>
+  <main id="main" class="grid">
+    {% for p in projects %}
+    <article class="card">
+      <h2>{{ p.title }}</h2>
+      <p class="short">{{ p.short }}</p>
+      <div class="card-actions">
+        <a class="btn" href="project/{{ p.id }}.html" aria-label="Voir le projet {{ p.title }}">Voir</a>
+        {% if p.github %}
+        <a class="btn ghost" href="{{ p.github }}" target="_blank" rel="noopener noreferrer">Code source</a>
+        {% endif %}
+      </div>
+      <div class="qr">
+        <img src="qr/{{ p.id }}.png" alt="QR code vers la page du projet {{ p.title }}" loading="lazy" width="110" height="110" />
+        <a class="small" href="qr/{{ p.id }}.png" download="{{ p.id }}.png">Télécharger le QR</a>
+      </div>
+    </article>
+    {% else %}
+    <p class="empty">Aucun projet pour le moment — ajoutez-en dans <code>data/projects.json</code>.</p>
+    {% endfor %}
+  </main>
+  <footer class="site-footer">
+    <small>Portfolio statique</small>
+  </footer>
+</body>
+</html>

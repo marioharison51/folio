@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="{{ project.short }}" />
+  <meta name="color-scheme" content="light dark" />
+  <title>{{ project.title }} — Mon portfolio</title>
+  <link rel="stylesheet" href="../static/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <main id="main" class="project">
+    <a class="back" href="../index.html">&larr; Retour aux projets</a>
+
+    <h1>{{ project.title }}</h1>
+    <p class="short">{{ project.short }}</p>
+
+    {% if project.image %}
+    <img class="hero" src="{{ project.image }}" alt="Aperçu du projet {{ project.title }}" loading="lazy" />
+    {% endif %}
+
+    {% if project.description %}
+    <p>{{ project.description }}</p>
+    {% endif %}
+
+    <div class="card-actions">
+      {% if project.github %}
+      <a class="btn" href="{{ project.github }}" target="_blank" rel="noopener noreferrer">Code source</a>
+      {% endif %}
+      {% if project.demo %}
+      <a class="btn ghost" href="{{ project.demo }}" target="_blank" rel="noopener noreferrer">Démo</a>
+      {% endif %}
+    </div>
+
+    <div class="qr qr-cta">
+      <img src="../qr/{{ project.id }}.png" alt="QR code vers cette page" width="110" height="110" loading="lazy" />
+      <a class="small" href="../qr/{{ project.id }}.png" download="{{ project.id }}.png">Télécharger le QR</a>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <small>Portfolio statique</small>
+    {% if github_profile_url %}
+    <p><a href="{{ github_profile_url }}" target="_blank" rel="noopener noreferrer">Voir mon profil GitHub</a></p>
+    {% endif %}
+  </footer>
+</body>
+</html>

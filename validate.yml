@@ -1,0 +1,28 @@
+name: Valider le build
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Générer le site (test uniquement, pas de déploiement)
+        run: python build.py
+        env:
+          SITE_BASE_URL: https://example.github.io/repo
+          GITHUB_PROFILE_URL: https://github.com/example
+
+      - name: Lister les fichiers générés
+        run: find dist -type f
