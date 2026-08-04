@@ -1,10 +1,16 @@
 [
   {
-    "id": "exemple-projet",
-    "title": "Nom du projet",
-    "short": "Une phrase courte qui résume le projet.",
-    "description": "Description plus détaillée : le problème résolu, les choix techniques, ce que vous en avez appris.",
-    "github": "https://github.com/votre-utilisateur/exemple-projet",
-    "demo": ""
+    "id": "rhmisolen",
+    "title": "RHMISolens",
+    "short": "Un projet pour apprendre à coder en solo, de façon autonome.",
+    "description": "Développé seul pour progresser en autonomie sur l'ensemble d'un projet, de la conception au code.",
+    "github": "https://github.com/mariohariso51/rhmisolen"
+  },
+  {
+    "id": "rubikbcd",
+    "title": "Solveur de Rubik's cube",
+    "short": "Un projet pour apprendre et implémenter des algorithmes de résolution.",
+    "description": "Implémentation d'un solveur de Rubik's cube en C et Python, pour approfondir la logique algorithmique.",
+    "github": "https://github.com/mariohariso51/rubikbcd"
   }
 ]
