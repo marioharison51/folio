@@ -63,6 +63,8 @@ def main():
             f.write(
                 project_tpl.render(project=p, github_profile_url=GITHUB_PROFILE_URL)
             )
+            # QR code vers la page d'accueil
+    qrcode.make(f"{BASE_URL}/").save(os.path.join(DIST, "qr", "home.png"))
 
     print(f"Site généré dans dist/ ({len(projects)} projet(s), base: {BASE_URL})")
 
